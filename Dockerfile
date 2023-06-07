@@ -1,3 +1,6 @@
+ARG VCS_REF="unknown"
+ARG BUILD_DATE="1970-01-01"
+
 ARG GRADLE_IMAGE=gradle:jdk17-alpine
 ARG BASE_IMAGE=alpine:3.18
 
@@ -52,6 +55,22 @@ RUN jlink --verbose --strip-debug --no-header-files --no-man-pages \
     --output /opt/jre
 
 FROM $BASE_IMAGE
+
+ARG VCS_REF
+ARG BUILD_DATE
+
+LABEL maintainer="mjkoo90@gmail.com" \
+    org.opencontainers.image.title="Headless BinExport" \
+    org.opencontainers.image.description="Create an exported disassembly of a binary with Ghidra and BinExport " \
+    org.opencontainers.image.authors="Maxwell Koo <mjkoo90@gmail.com>" \
+    org.opencontainers.image.vendor="Maxwell Koo <mjkoo90@gmail.com>" \
+    org.opencontainers.image.version="1.0.0" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.documentation="https://github.com/mjkoo/headless-binexport" \
+    org.opencontainers.image.url="https://github.com/mjkoo/headless-binexport" \
+    org.opencontainers.image.source="https://github.com/mjkoo/headless-binexport" \
+    org.opencontainers.image.revision=$VCS_REF \
+    org.opencontainers.image.created=$BUILD_DATE
 
 RUN apk add --no-cache gcompat libstdc++ fontconfig ttf-dejavu
 
