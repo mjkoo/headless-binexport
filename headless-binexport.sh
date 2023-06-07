@@ -1,5 +1,7 @@
 #! /bin/bash
 
+IMAGE="mjkoo/headless-binexport:latest"
+
 set -eo pipefail
 
 PROGNAME=$(basename "$0")
@@ -24,6 +26,6 @@ cp "$TARGET_BINARY" "$TMPDIR/$TMP_TARGET_BINARY"
 touch "$TMPDIR/$TMP_OUTPUT_FILE"
 chmod 666 "$TMPDIR"/*
 
-docker run --rm -v"$TMPDIR":/workdir -it binexport:latest "/workdir/$TMP_TARGET_BINARY" "/workdir/$TMP_OUTPUT_FILE"
+docker run --rm -v"$TMPDIR":/workdir -it "$IMAGE" "/workdir/$TMP_TARGET_BINARY" "/workdir/$TMP_OUTPUT_FILE"
 
 cp "$TMPDIR/$TMP_OUTPUT_FILE" "$OUTPUT_FILE"

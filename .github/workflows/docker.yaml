@@ -6,9 +6,9 @@ on:
       - main
   schedule:
     - cron: '0 10 * * 0'
-name: Docker
+name: Build
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
