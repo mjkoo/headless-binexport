@@ -1,5 +1,7 @@
 # headless-binexport
 
+[![Build](https://github.com/mjkoo/headless-binexport/actions/workflows/docker.yaml/badge.svg)](https://github.com/mjkoo/headless-binexport/actions/workflows/docker.yaml)
+
 A Dockerfile + wrapper script to do one-step automatic exporting of a target binary's disasssembly via [Ghidra](https://github.com/NationalSecurityAgency/ghidra) and [BinExport](https://github.com/google/binexport)
 
 ## Usage
