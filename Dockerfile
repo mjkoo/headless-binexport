@@ -4,9 +4,9 @@ ARG BUILD_DATE="1970-01-01"
 ARG GRADLE_IMAGE=gradle:jdk17-alpine
 ARG BASE_IMAGE=alpine:3.18
 
-ARG GHIDRA_RELEASE_URL=https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.3_build/ghidra_10.3_PUBLIC_20230510.zip
+ARG GHIDRA_RELEASE_URL=https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.0.1_build/ghidra_11.0.1_PUBLIC_20240130.zip
 ARG BINEXPORT_REPO=https://github.com/google/binexport.git
-ARG BINEXPORT_REV=27256a2939aff6841acabf0300368b412e199dcf
+ARG BINEXPORT_REV=5795afc727e7ab66072ea12b38f3e9c978bfa046
 
 FROM $GRADLE_IMAGE as ghidra-source
 
